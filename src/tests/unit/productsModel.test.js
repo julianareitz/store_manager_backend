@@ -8,6 +8,7 @@ const productsMock = require('./productsModelMock');
 const connection = require('../../../src/models/connection');
 
 describe('Tests products from model layer', function () {
+  
   afterEach(sinon.restore);
 
   it.only('01 - Test if returns all products', async function () {
