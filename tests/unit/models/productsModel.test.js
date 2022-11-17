@@ -7,7 +7,7 @@ const productModel = require('../../models/productModel');
 const {
   allProductsMock,
   notFoundMessageMock,
-} = require('../productsMock');
+} = require('../mocks/productsMock');
 
 describe('Tests products from model layer', function () {
 

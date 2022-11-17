@@ -11,7 +11,7 @@ const {
   notFoundMessageMock,
   allProductsReturnMock,
   notFoundProductMock,
-} = require('../productsMock');
+} = require('../mocks/productsMock');
 
 describe('Tests products from controller layer', function () {
 
