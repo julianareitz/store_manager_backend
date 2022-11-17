@@ -1,4 +1,3 @@
-const validateName = require('../middlewares/nameValidation');
 const productsModel = require('../models/productsModel');
 
 const getAllProducts = async () => {
@@ -14,13 +13,13 @@ const getProductById = async (id) => {
   return { type: null, message: productById };
 };
 
-const getNewProduct = async () => {
-  await productsModel.newProduct();
-  validateName(); 
+const newProduct = async (name) => {
+  const id = await productsModel.newProduct(name);
+  return { type: null, message: { name, id } };
 };
 
 module.exports = {
   getAllProducts,
   getProductById,
-  getNewProduct,
+  newProduct,
 };

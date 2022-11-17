@@ -2,8 +2,8 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 
-const productService = require('../../services/productService');
-const productController = require('../../controllers/productController')
+const productService = require('../../../src/services/productService');
+const productController = require('../../../src/controllers/productController')
 
 const {
   allProductsMock,
@@ -11,7 +11,7 @@ const {
   notFoundMessageMock,
   allProductsReturnMock,
   notFoundProductMock,
-} = require('./productsMock');
+} = require('../productsMock');
 
 describe('Tests products from controller layer', function () {
 

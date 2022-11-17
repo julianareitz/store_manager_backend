@@ -2,11 +2,11 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const productModel = require('../../models/productModel');
-const productService = require('../../services/productService');
+const productService = require('../../../src/services/productService');
 
 const {
   allProductsMock,
-} = require('./productsMock');
+} = require('../productsMock');
 
 describe('Tests products from service layer', function () {
 
