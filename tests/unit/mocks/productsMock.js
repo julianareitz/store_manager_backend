@@ -32,17 +32,17 @@ const newProductsMock = [
   }
 ];
 
-notFoundMessageMock = 'Product not found';
+const notFoundMessageMock = 'Product not found';
 
-const allProductsReturnMock = { type: null, message: products };
+const allProductsReturnMock = { type: null, message: allProductsMock };
 
-const productsReturnMock = { type: null, message: products[0] };
+const productsReturnMock = { type: null, message: allProductsMock[0] };
 
-const notFoundMessageMock = { type: 'INVALID_VALUE', message: 'Product not found' };
+const notFoundProductMock = { type: 'INVALID_VALUE', message: 'Product not found' };
 
 const newProductMock = { name: 'Laço da verdade da Mulher Maravilha', id: 4 };
 
-const newProductReturnMock = { type: null, message: newProduct };
+// const newProductReturnMock = { type: null, message: newProduct };
 
 
 module.exports = {
@@ -53,5 +53,4 @@ module.exports = {
   productsReturnMock,
   notFoundProductMock,
   newProductMock,
-  newProductReturnMock,
 };

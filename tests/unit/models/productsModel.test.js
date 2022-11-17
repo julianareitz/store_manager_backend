@@ -2,38 +2,33 @@ const { expect } = require('chai');
 const connection = require('../../../src/models/connection');
 const sinon = require('sinon');
 
-const productModel = require('../../models/productModel');
+const productsModel = require('../../../src/models/productsModel');
 
-const {
-  allProductsMock,
-  notFoundMessageMock,
-} = require('../mocks/productsMock');
+const { allProductsMock } = require('../mocks/productsMock');
 
 describe('Tests products from model layer', function () {
 
   it('01 - Test if returns all products', async function () {
-    sinon.stub(connection, 'execute' ).resolves([allProductsMock]);
-    const result = await productModel.findAll();
+    sinon.stub(connection, 'execute' ).resolves([[allProductsMock]]);
+    
+    const result = await productsModel.findAll();
+
     expect(result).to.be.deep.equal(allProductsMock);
   });
 
-  it('02 - Test if returns product by id', async function () {
-    sinon.stub(connection, 'execute').resolves([allProductsMock[01]]);
-    const result = await productModel.findById(0);
-    expect(result).to.be.deep.equal(allProductsMock[01]);
-  });
+  // it('02 - Test if returns product by id', async function () {
+  //   sinon.stub(connection, 'execute').resolves([[allProductsMock[0]]]);
+    
+  //   const result = await productsModel.findById(1);
 
-  it('03 - Test if returns error message if not found id', async function () {
-    sinon.stub(connection, 'execute').resolves([allProductsMock]);
-    const result = await productModel.findById(500);
-    expect(result).to.be.deep.equal(notFoundMessageMock);
-  });
+  //   expect(result).to.be.deep.equal(allProductsMock[0]);
+  // });
 
-  it('04 - Test if insert a new product', async function () {
-    sinon.stub(connection, 'execute').resolves(4);
-    const result = await productModel.newProduct({ name: "Laço da verdade da Mulher Maravilha" });
-    expect(result).to.be.deep.equal({ name: "Laço da verdade da Mulher Maravilha" });
-  });
+  // it('04 - Test if insert a new product', async function () {
+  //   sinon.stub(connection, 'execute').resolves(4);
+  //   const result = await productsModel.newProduct({ name: "Laço da verdade da Mulher Maravilha" });
+  //   expect(result).to.be.deep.equal({ name: "Laço da verdade da Mulher Maravilha" });
+  // });
 
   afterEach(sinon.restore);
 });
