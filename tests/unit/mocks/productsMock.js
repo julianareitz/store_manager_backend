@@ -1,3 +1,4 @@
+/*-------------------------- Products --------------------------*/
 const allProductsMock = [
   {
     "id": 1,
@@ -34,9 +35,9 @@ const newProductsMock = [
 
 const notFoundMessageMock = 'Product not found';
 
-const allProductsReturnMock = { type: null, message: allProductsMock };
+const allProductsReturnMock = { message: allProductsMock, type: null };
 
-const productsReturnMock = { type: null, message: allProductsMock[0] };
+const firstProduct = { type: null, message: allProductsMock[0] };
 
 const notFoundProductMock = { type: 'INVALID_VALUE', message: 'Product not found' };
 
@@ -49,8 +50,8 @@ module.exports = {
   allProductsMock,
   newProductsMock,
   notFoundMessageMock,
+  firstProduct,
   allProductsReturnMock,
-  productsReturnMock,
   notFoundProductMock,
   newProductMock,
 };

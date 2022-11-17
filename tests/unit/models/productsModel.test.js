@@ -13,7 +13,7 @@ describe('Tests products from model layer', function () {
     
     const result = await productsModel.findAll();
 
-    expect(result).to.be.deep.equal(allProductsMock);
+    expect(result).to.be.deep.equal([allProductsMock]);
   });
 
   // it('02 - Test if returns product by id', async function () {
