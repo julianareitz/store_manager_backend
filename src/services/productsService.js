@@ -24,8 +24,8 @@ const updateProduct = async (product) => {
 
   if (verifyIdFunc.type === 404) return verifyIdFunc;
 
-  const result = await productsModel.updateProduct(product);
-  return { type: null, message: result };
+  await productsModel.updateProduct(product);
+  return { type: null, message: product };
 };
 
 const deleteProduct = async (id) => {

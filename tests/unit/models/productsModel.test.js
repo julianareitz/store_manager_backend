@@ -28,7 +28,6 @@ describe('Tests products from model layer', function () {
     sinon.stub(connection, 'execute').resolves();
 
     const result = await productsModel.updateProduct({ name: 'Martelo de Thor', id: 1 });
-
     expect(result).to.be.deep.equal();
   });
 
