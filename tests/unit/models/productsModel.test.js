@@ -20,8 +20,7 @@ describe('Tests products from model layer', function () {
     sinon.stub(connection, 'execute').resolves([mock.deletedProduct]);
     
     const result = await productsModel.deleteProduct(1);
-    console.log(result);
-
+    
     expect(result).to.be.deep.equal(mock.deletedProduct);
   });
 

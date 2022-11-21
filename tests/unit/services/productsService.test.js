@@ -4,33 +4,32 @@ const sinon = require('sinon');
 const productsModel = require('../../../src/models/productsModel');
 const productsService = require('../../../src/services/productsService');
 
-const {
-  allProductsMock,
-} = require('../mocks/productsMock');
+const mock = require('../mocks/productsMock');
 
 describe('Tests products from service layer', function () {
 
   it('01 - Test if returns all products', async function () {
-    sinon.stub(productsModel, 'findAll').resolves(allProductsMock);
+    sinon.stub(productsModel, 'findAll').resolves(mock.allProductsMock);
     const result = await productsService.getAllProducts();
     
-    expect(result).to.be.deep.equal(allProductsMock);
+    expect(result).to.be.deep.equal(mock.allProductsMock);
   });
   
   it('02 - Test if returns product by id', async function () {
-    sinon.stub(productsModel, 'findById').resolves(allProductsMock[0]);
+    sinon.stub(productsModel, 'findById').resolves(mock.allProductsMock[0]);
 
     const result = await productsService.getProductById(1);
 
-    expect(result.message).to.be.deep.equal(allProductsMock[0]);
+    expect(result.message).to.be.deep.equal(mock.allProductsMock[0]);
   });
 
   it('03 - Test if delete product by id', async function () {
-    sinon.stub(productsModel, 'deleteProduct').resolves(allProductsMock);
+    sinon.stub(productsModel, 'deleteProduct').resolves(mock.deletedProduct);
 
     const result = await productsService.deleteProduct(1);
+    console.log(result.message);
 
-    expect(result.message).to.be.deep.equal(productsMockWithDelete);
+    expect(result.message).to.be.deep.equal(mock.deletedProduct);
   });
 
   // it('03 - Test if returns error message if not found id', async function () {
