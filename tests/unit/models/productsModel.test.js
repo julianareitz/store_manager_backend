@@ -4,16 +4,25 @@ const sinon = require('sinon');
 
 const productsModel = require('../../../src/models/productsModel');
 
-const { allProductsMock } = require('../mocks/productsMock');
+const mock = require('../mocks/productsMock');
 
 describe('Tests products from model layer', function () {
 
   it('01 - Test if returns all products', async function () {
-    sinon.stub(connection, 'execute' ).resolves([[allProductsMock]]);
+    sinon.stub(connection, 'execute' ).resolves([[mock.allProductsMock]]);
     
     const result = await productsModel.findAll();
 
-    expect(result).to.be.deep.equal([allProductsMock]);
+    expect(result).to.be.deep.equal([mock.allProductsMock]);
+  });
+
+  it('02 - Test if delete a product by id', async function () {
+    sinon.stub(connection, 'execute').resolves([mock.deletedProduct]);
+    
+    const result = await productsModel.deleteProduct(1);
+    console.log(result);
+
+    expect(result).to.be.deep.equal(mock.deletedProduct);
   });
 
   // it('02 - Test if returns product by id', async function () {

@@ -33,6 +33,8 @@ const newProductsMock = [
   }
 ];
 
+const deletedProduct = `The product with id: 1 has been secessfull deleted!`;
+
 const notFoundMessageMock = 'Product not found';
 
 const allProductsReturnMock = { message: allProductsMock, type: null };
@@ -54,4 +56,5 @@ module.exports = {
   allProductsReturnMock,
   notFoundProductMock,
   newProductMock,
+  deletedProduct,
 };

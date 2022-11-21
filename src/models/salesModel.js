@@ -33,10 +33,6 @@ const insert = async (sales, id) => {
   const values = sales
     .reduce((acc, { productId, quantity }) =>
       [...acc, saleId, productId, quantity], []);
-
-    Object.values(sales)
-    .map((key) => `${key}`)
-    .join(', ');
   
   const [{ insertId }] = await connection.execute(
     `INSERT INTO travels (${columns}) VALUE (${placeholders})`,

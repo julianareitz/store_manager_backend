@@ -25,6 +25,14 @@ describe('Tests products from service layer', function () {
     expect(result.message).to.be.deep.equal(allProductsMock[0]);
   });
 
+  it('03 - Test if delete product by id', async function () {
+    sinon.stub(productsModel, 'deleteProduct').resolves(allProductsMock);
+
+    const result = await productsService.deleteProduct(1);
+
+    expect(result.message).to.be.deep.equal(productsMockWithDelete);
+  });
+
   // it('03 - Test if returns error message if not found id', async function () {
   //   sinon.stub(productsModel, 'findAll').resolves(allProductsMock);
   //   const result = await productsModel.findById(500);
