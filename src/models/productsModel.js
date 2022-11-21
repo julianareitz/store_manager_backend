@@ -23,8 +23,17 @@ const newProduct = async (name) => {
   return insertId;
 };
 
+const deleteProduct = async (id) => {
+  await connection.execute(
+    'DELETE FROM products WHERE id = ?',
+    [id],
+  );
+  return `The product with id: ${id} has been secessfull deleted!`;
+};
+
 module.exports = {
   findAll,
   findById,
   newProduct,
+  deleteProduct,
 };

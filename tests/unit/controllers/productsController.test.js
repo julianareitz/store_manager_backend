@@ -10,7 +10,6 @@ const productController = require('../../../src/controllers/productController')
 
 const {
   allProductsMock,
-  allProductsReturnMock,
   firstProduct,
 } = require('../mocks/productsMock');
 

@@ -15,26 +15,40 @@ const findById = async (id) => {
   return result;
 };
 
-const newSale = async () => {
-  const [{ insertDate }] = await connection.execute(
-    'INSERT INTO sales (date) VALUES (GETDATE() AS Date)',
+const insertSale = async (_id) => {
+  const [{ insertId }] = await connection.execute(
+    'INSERT INTO sales (date) VALUES (default)',
+    [],
   );
-  return insertDate;
+  return insertId;
 };
 
-const newSaleDetails = async (saleId, productId, quantity) => {
-  const [{ insertSaleDetails }] = await connection.execute(
-    'INSERT INTO sales_products (sale_id, product_id, quantity) VALUES (?)',
-    [saleId],
-    [productId],
-    [quantity],
+const insert = async (sales, id) => {
+  const saleId = id || await insertSale();
+  
+  const placeholders = Object.keys(sales)
+  .map((_key) => '?')
+  .join(', ');
+  
+  const values = sales
+    .reduce((acc, { productId, quantity }) =>
+      [...acc, saleId, productId, quantity], []);
+
+    Object.values(sales)
+    .map((key) => `${key}`)
+    .join(', ');
+  
+  const [{ insertId }] = await connection.execute(
+    `INSERT INTO travels (${columns}) VALUE (${placeholders})`,
+    [...Object.values(sales)],
   );
-  return insertSaleDetails;
+
+  return insertId;
 };
 
 module.exports = {
   findAll,
   findById,
-  newSaleDetails,
-  newSale,
+  insertSale,
+  insert,
 };

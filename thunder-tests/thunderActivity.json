@@ -1,56 +1,14 @@
 [
   {
-    "_id": "a522c0a0-67a9-4158-944b-cecd459a73dd",
-    "colId": "history",
-    "containerId": "",
-    "name": "https://localhost:3060",
-    "url": "https://localhost:3060",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2022-11-16T19:02:09.766Z",
-    "modified": "2022-11-16T19:02:09.800Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "b651f8de-9f25-4074-be06-16f44dd8c34a",
-    "colId": "history",
-    "containerId": "",
-    "name": "https://localhost:3000",
-    "url": "https://localhost:3000",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2022-11-16T19:04:28.812Z",
-    "modified": "2022-11-16T19:04:28.832Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "1364dfe9-98b2-48da-b09b-9925e4f1b98d",
-    "colId": "history",
-    "containerId": "",
-    "name": "https://localhost:3000/products",
-    "url": "https://localhost:3000/products",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2022-11-16T19:05:47.871Z",
-    "modified": "2022-11-16T19:05:47.894Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "8b922bd1-2215-4334-88ae-8bfdb08bcdae",
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/products",
+    "url": "http://localhost:3000/products/2",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-16T19:05:54.189Z",
-    "modified": "2022-11-17T18:16:48.213Z",
+    "modified": "2022-11-21T19:37:40.071Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -72,6 +30,20 @@
       "raw": "  {\n    \"id\": 4,\n    \"name\": \"Laço da verdade da Mulher Maravilha\"\n  }",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "91531096-298c-42fb-9fda-c85023855260",
+    "colId": "history",
+    "containerId": "",
+    "name": "product",
+    "url": "localhost:3000/products/1",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-21T19:36:37.108Z",
+    "modified": "2022-11-21T19:36:37.108Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]
