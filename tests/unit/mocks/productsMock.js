@@ -35,6 +35,8 @@ const newProductsMock = [
 
 const deletedProduct = `The product with id: 1 has been secessfull deleted!`;
 
+const updatedProduct = { name: 'martelo Mjolnir', id:1 };
+
 const notFoundMessageMock = 'Product not found';
 
 const allProductsReturnMock = { message: allProductsMock, type: null };
@@ -44,8 +46,6 @@ const firstProduct = { type: null, message: allProductsMock[0] };
 const notFoundProductMock = { type: 'INVALID_VALUE', message: 'Product not found' };
 
 const newProductMock = { name: 'Laço da verdade da Mulher Maravilha', id: 4 };
-
-// const newProductReturnMock = { type: null, message: newProduct };
 
 
 module.exports = {
@@ -57,4 +57,5 @@ module.exports = {
   notFoundProductMock,
   newProductMock,
   deletedProduct,
+  updatedProduct,
 };

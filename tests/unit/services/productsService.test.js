@@ -27,7 +27,14 @@ describe('Tests products from service layer', function () {
     sinon.stub(productsModel, 'deleteProduct').resolves(mock.deletedProduct);
 
     const result = await productsService.deleteProduct(1);
-    console.log(result.message);
+
+    expect(result.message).to.be.deep.equal(mock.deletedProduct);
+  });
+
+  it('04 - Test if update product', async function () {
+    sinon.stub(productsModel, 'updateProduct').resolves(mock.deletedProduct);
+
+    const result = await productsService.updateProduct(1);
 
     expect(result.message).to.be.deep.equal(mock.deletedProduct);
   });

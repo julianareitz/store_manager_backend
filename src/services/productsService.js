@@ -19,9 +19,20 @@ const newProduct = async (name) => {
   return { type: null, message: { name, id } };
 };
 
+const updateProduct = async (id) => {
+  const verifyIdFunc = await verifyId(id);
+
+  if (verifyIdFunc.type === 404) return verifyIdFunc;
+  
+  const result = await productsModel.updateProduct(id);
+  return { type: null, message: result };
+};
+
 const deleteProduct = async (id) => {
   const verifyIdFunc = await verifyId(id);
+
   if (verifyIdFunc.type === 404) return verifyIdFunc;
+
   const result = await productsModel.deleteProduct(id);
   return { type: null, message: result };
 };
@@ -31,4 +42,5 @@ module.exports = {
   getProductById,
   newProduct,
   deleteProduct,
+  updateProduct,
 };

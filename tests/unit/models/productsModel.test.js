@@ -24,6 +24,14 @@ describe('Tests products from model layer', function () {
     expect(result).to.be.deep.equal(mock.deletedProduct);
   });
 
+  it('03 - Test if update a product', async function () {
+    sinon.stub(connection, 'execute').resolves();
+
+    const result = await productsModel.updateProduct({ name: 'Martelo de Thor', id: 1 });
+
+    expect(result).to.be.deep.equal();
+  });
+
   // it('02 - Test if returns product by id', async function () {
   //   sinon.stub(connection, 'execute').resolves([[allProductsMock[0]]]);
     

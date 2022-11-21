@@ -23,28 +23,28 @@ const insertSale = async (_id) => {
   return insertId;
 };
 
-const insert = async (sales, id) => {
-  const saleId = id || await insertSale();
+// const insert = async (sales, id) => {
+//   const saleId = id || await insertSale();
   
-  const placeholders = Object.keys(sales)
-  .map((_key) => '?')
-  .join(', ');
+//   const placeholders = Object.keys(sales)
+//   .map((_key) => '?')
+//   .join(', ');
   
-  const values = sales
-    .reduce((acc, { productId, quantity }) =>
-      [...acc, saleId, productId, quantity], []);
+//   const values = sales
+//     .reduce((acc, { productId, quantity }) =>
+//       [...acc, saleId, productId, quantity], []);
   
-  const [{ insertId }] = await connection.execute(
-    `INSERT INTO travels (${columns}) VALUE (${placeholders})`,
-    [...Object.values(sales)],
-  );
+//   const [{ insertId }] = await connection.execute(
+//     `INSERT INTO travels (${columns}) VALUE (${placeholders})`,
+//     [...Object.values(sales)],
+//   );
 
-  return insertId;
-};
+//   return insertId;
+// };
 
 module.exports = {
   findAll,
   findById,
   insertSale,
-  insert,
+  // insert,
 };

@@ -8,10 +8,7 @@ chai.use(sinonChai);
 const productsService = require('../../../src/services/productsService');
 const productController = require('../../../src/controllers/productController')
 
-const {
-  allProductsMock,
-  firstProduct,
-} = require('../mocks/productsMock');
+const mock = require('../mocks/productsMock');
 
 describe('Tests products from controller layer', function () {
 
@@ -22,11 +19,11 @@ describe('Tests products from controller layer', function () {
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
 
-    sinon.stub(productsService, 'getAllProducts').resolves(allProductsMock);
+    sinon.stub(productsService, 'getAllProducts').resolves(mock.allProductsMock);
     await productController.getAllProducts(req, res);
 
     expect(res.status).to.have.been.calledWith(200);
-    expect(res.json).to.have.been.calledWith(allProductsMock);
+    expect(res.json).to.have.been.calledWith(mock.allProductsMock);
   });
 
   it('02 - Test if returns product by id', async function () {
@@ -36,12 +33,27 @@ describe('Tests products from controller layer', function () {
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
 
-    sinon.stub(productsService, 'getProductById').resolves(firstProduct);
+    sinon.stub(productsService, 'getProductById').resolves(mock.firstProduct);
     await productController.getProductById(req, res);
 
     expect(res.status).to.have.been.calledWith(200);
-    expect(res.json).to.have.been.calledWith(firstProduct.message);
+    expect(res.json).to.have.been.calledWith(mock.firstProduct.message);
   });
+
+
+  // it('03 - Test if delete product by id', async function () {
+  //   const res = {};
+  //   const req = { params: { id: 1 } };
+
+  //   res.status = sinon.stub().returns(res);
+  //   res.json = sinon.stub().returns();
+
+  //   sinon.stub(productsService, 'deletedProduct').resolves(mock.);
+  //   await productController.deletedProduct(req, res);
+
+  //   expect(res.status).to.have.been.calledWith(204);
+  //   expect(res.json).to.have.been.calledWith(mock.message);
+  // });
 
   // it('03 - Test if returns error message if not found id', async function () {
   //   const res = {};
