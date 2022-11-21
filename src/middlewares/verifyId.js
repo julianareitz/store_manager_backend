@@ -1,4 +1,4 @@
-const productsModel = require('../../models/productsModel');
+const productsModel = require('../models/productsModel');
 
 const verifyId = async (id) => {
   const productById = await productsModel.findById(id);

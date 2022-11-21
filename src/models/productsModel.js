@@ -28,6 +28,7 @@ const updateProduct = async (product) => {
     'UPDATE products SET name = ? WHERE id = ?',
     [product.name, product.id],
   );
+  return product;
 };
 
 const deleteProduct = async (id) => {

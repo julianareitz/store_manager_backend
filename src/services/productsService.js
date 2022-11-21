@@ -1,5 +1,5 @@
 const productsModel = require('../models/productsModel');
-const verifyId = require('./verifications/ProductVerification');
+const verifyId = require('../middlewares/verifyId');
 
 const getAllProducts = async () => {
   const products = await productsModel.findAll();
@@ -19,12 +19,12 @@ const newProduct = async (name) => {
   return { type: null, message: { name, id } };
 };
 
-const updateProduct = async (id) => {
-  const verifyIdFunc = await verifyId(id);
+const updateProduct = async (product) => {
+  const verifyIdFunc = await verifyId(product.id);
 
   if (verifyIdFunc.type === 404) return verifyIdFunc;
-  
-  const result = await productsModel.updateProduct(id);
+
+  const result = await productsModel.updateProduct(product);
   return { type: null, message: result };
 };
 
@@ -41,6 +41,6 @@ module.exports = {
   getAllProducts,
   getProductById,
   newProduct,
-  deleteProduct,
   updateProduct,
+  deleteProduct,
 };

@@ -45,7 +45,12 @@ const firstProduct = { type: null, message: allProductsMock[0] };
 
 const notFoundProductMock = { type: 'INVALID_VALUE', message: 'Product not found' };
 
-const newProductMock = { name: 'Laço da verdade da Mulher Maravilha', id: 4 };
+const newProductMock = { message: { name: 'Laço da verdade da Mulher Maravilha', id: 4 } };
+
+const newProductServiceResponse = {
+  type: null,
+  message: { name: 'Laço da verdade da Mulher Maravilha', id: 4 }
+};
 
 
 module.exports = {
@@ -58,4 +63,5 @@ module.exports = {
   newProductMock,
   deletedProduct,
   updatedProduct,
+  newProductServiceResponse,
 };

@@ -1,9 +1,9 @@
 const joiValidation = require('./joiValidation');
 const mapError = require('./mapError');
 
-const nameValidation = (req, res, next) => {
-  const { name } = req.body;
-  const { error } = joiValidation.nameValidation.validate({ name });
+const validateId = (req, res, next) => {
+  const { id } = req.params;
+  const { error } = joiValidation.productValidation.validate({ id });
   if (error) {
     const { type, message } = error.details[0];
     return res.status(mapError.mapError(type)).json({ message });
@@ -11,4 +11,4 @@ const nameValidation = (req, res, next) => {
   next();
 };
 
-module.exports = nameValidation;
+module.exports = validateId;
