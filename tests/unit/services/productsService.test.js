@@ -32,11 +32,11 @@ describe('Tests products from service layer', function () {
   });
 
   it('04 - Test if update product', async function () {
-    sinon.stub(productsModel, 'updateProduct').resolves(mock.deletedProduct);
+    sinon.stub(productsModel, 'updateProduct').resolves(mock.updatedProduct);
 
     const result = await productsService.updateProduct(1);
 
-    expect(result.message).to.be.deep.equal(mock.deletedProduct);
+    expect(result.message).to.be.deep.equal(mock.updatedProduct);
   });
 
   // it('03 - Test if returns error message if not found id', async function () {
