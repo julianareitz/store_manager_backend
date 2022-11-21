@@ -89,19 +89,19 @@ describe('Tests products from controller layer', function () {
     expect(res.json).to.have.been.calledWith(mock.newProductServiceResponse.message);
   });
 
-  // it('03 - Test if returns error message if not found id', async function () {
-  //   const res = {};
-  //   const req = { params: { id: 500 } };
+  it('03 - Test if returns error message if not found id', async function () {
+    const res = {};
+    const req = { params: { id: 999 } };
 
-  //   res.status = sinon.stub().returns(res);
-  //   res.json = sinon.stub().returns();
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
 
-  //   sinon.stub(productsService, 'getProductById').resolves(notFoundProductMock);
-  //   await productController.getProductById(req, res);
+    sinon.stub(productsService, 'getProductById').resolves(mock.notFoundProductMock);
+    await productController.getProductById(req, res);
 
-  //   expect(res.status).to.have.been.calledWith(404);
-  //   expect(res.json).to.have.been.calledWith({ message: notFoundMessageMock });
-  // });
+    expect(res.status).to.have.been.calledWith(404);
+    expect(res.json).to.have.been.calledWith({ message: mock.notFoundMessageMock });
+  });
 
 
   afterEach(sinon.restore);
