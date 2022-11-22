@@ -12,33 +12,33 @@ const mock = require('../mocks/productsMock');
 
 describe('Tests products from controller layer', function () {
 
-  // it('01 - Test if returns all products', async function () {
-  //   const res = {};
-  //   const req = { body: {} };
+  it('01 - Test if returns all products', async function () {
+    const res = {};
+    const req = { body: {} };
 
-  //   res.status = sinon.stub().returns(res);
-  //   res.json = sinon.stub().returns();
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
 
-  //   sinon.stub(productsService, 'getAllProducts').resolves(mock.allProductsMock);
-  //   await productController.getAllProducts(req, res);
+    sinon.stub(productsService, 'getAllProducts').resolves(mock.allProductsMock);
+    await productController.getAllProducts(req, res);
 
-  //   expect(res.status).to.have.been.calledWith(200);
-  //   expect(res.json).to.have.been.calledWith(mock.allProductsMock);
-  // });
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(mock.allProductsMock);
+  });
 
-  // it('02 - Test if returns product by id', async function () {
-  //   const res = {};
-  //   const req = { params: { id: 1 } };
+  it('02 - Test if returns product by id', async function () {
+    const res = {};
+    const req = { params: { id: 1 } };
 
-  //   res.status = sinon.stub().returns(res);
-  //   res.json = sinon.stub().returns();
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
 
-  //   sinon.stub(productsService, 'getProductById').resolves(mock.firstProduct);
-  //   await productController.getProductById(req, res);
+    sinon.stub(productsService, 'getProductById').resolves(mock.firstProduct);
+    await productController.getProductById(req, res);
 
-  //   expect(res.status).to.have.been.calledWith(200);
-  //   expect(res.json).to.have.been.calledWith(mock.firstProduct.message);
-  // });
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(mock.firstProduct.message);
+  });
 
   
 
@@ -56,20 +56,20 @@ describe('Tests products from controller layer', function () {
   //   expect(res.json).to.have.been.calledWith(mock.deletedProduct);
   // });
 
-  // it('04 - Test if insert a new product', async function () {
-  //   const res = {};
-  //   const req = { body: { name: "Laço da verdade da Mulher Maravilha" } };
+  it('04 - Test if insert a new product', async function () {
+    const res = {};
+    const req = { body: { name: "Laço da verdade da Mulher Maravilha" } };
 
-  //   res.status = sinon.stub().returns(res);
-  //   res.json = sinon.stub().returns();
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
 
-  //   sinon.stub(productsService, 'newProduct').resolves(mock.newProductServiceResponse);
-  //   await productController.newProduct(req, res);
+    sinon.stub(productsService, 'newProduct').resolves(mock.newProductServiceResponse);
+    await productController.newProduct(req, res);
   
-  //   expect(res.status).to.have.been.calledWith(201);
+    expect(res.status).to.have.been.calledWith(201);
     
-  //   expect(res.json).to.have.been.calledWith(mock.newProductServiceResponse.message);
-  // });
+    expect(res.json).to.have.been.calledWith(mock.newProductServiceResponse.message);
+  });
 
 
   it('05 - Test if update product', async function () {
